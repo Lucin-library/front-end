@@ -1,0 +1,69 @@
+@import 'normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@200;300;400;500;700;900&display=swap');
+
+:root {
+    --primary: #8CB9BD;
+    --primary-orange: #ECB159;
+    --primary-brown: #B67352;
+    --text-color: #3a4752;
+    --white-color: #FEFBF6;
+    --background-hover: rgba(22, 24, 35, 0.03);
+
+    --default-width: 1200px;
+    --default-layout-horizontal-spacer: 32px;
+}
+
+html {
+    font-size: 62.5%;
+    color: #3a4752;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.5;
+    text-rendering: optimizespeed;
+}
+
+button,
+input,
+[tabindex] {
+    border: none;
+    outline: none;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+// Scrollbar CSS
+
+html *::-webkit-scrollbar {
+    border-radius: 0;
+    width: 8px;
+}
+
+html *::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+html *::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
