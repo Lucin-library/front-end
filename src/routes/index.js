@@ -1,9 +1,11 @@
-import HomePage from "../pages/Homepage";
-import Login from "../pages/Login";
+import HomePage from '../pages/Homepage';
+import Login from '../pages/Login';
+import Details from '../pages/Details';
 
 // Use without login
 export const publicRoutes = [
     { path: '/', component: HomePage },
+    { path: '/details', component: Details },
     { path: '/login', component: Login, layout: null },
 ];
 

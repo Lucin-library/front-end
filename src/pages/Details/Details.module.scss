@@ -1,0 +1,180 @@
+:root {
+    --color-light: white;
+    --color-dark: #212121;
+    --color-signal: #fab700;
+
+    --color-background: var(--color-light);
+    --color-text: var(--color-dark);
+    --color-accent: var(--color-signal);
+
+    --size-bezel: 0.5rem;
+    --size-radius: 4px;
+
+    color: var(--color-text);
+    background: var(--color-background);
+    font-weight: 100;
+    padding: 0 calc(var(--size-bezel) * 3);
+}
+
+.details {
+    display: flex;
+    margin: 20px 0 20px 50px;
+    max-width: var(--default-width);
+    .image img {
+        width: 370px;
+    }
+
+    .information {
+        margin-left: 70px;
+        position: relative;
+
+        h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .votes {
+            display: flex;
+            margin-bottom: 15px;
+
+            .vote-left {
+                display: flex;
+
+                .scores {
+                    font-weight: 500;
+                }
+
+                .stars {
+                    color: #ffd100;
+                    margin: 0 5px;
+                }
+            }
+
+            .vote-right span {
+                color: rgb(153, 153, 153);
+            }
+        }
+
+        .label {
+            display: flex;
+            color: rgb(153, 153, 153);
+
+            p {
+                margin-left: 15px;
+                color: var(--text-color);
+            }
+        }
+
+        .description {
+            text-align: justify;
+            border: 1px solid var(--primary);
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .button {
+            position: absolute;
+            bottom: 0;
+        }
+    }
+}
+
+.feedback {
+    margin: 50px;
+
+    .user-cmt {
+        position: relative;
+        margin: 30px 0;
+        padding-bottom: 50px;
+        img {
+            width: 40px;
+            margin-right: 20px;
+        }
+
+        .user-cmt-action {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+    }
+    .input {
+        position: relative;
+        width: 1145px;
+
+        &__label {
+            position: absolute;
+            left: 0;
+            top: 0;
+            padding: calc(var(--size-bezel) * 0.75) calc(var(--size-bezel) * 0.5);
+            margin: calc(var(--size-bezel) * 0.75 + 3px) calc(var(--size-bezel) * 0.5);
+            background: pink;
+            white-space: nowrap;
+            transform: translate(0, 0);
+            transform-origin: 0 0;
+            background: var(--color-background);
+            transition: transform 120ms ease-in;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+        &__field {
+            box-sizing: border-box;
+            display: block;
+            width: 100%;
+            border: 0;
+            border-bottom: 2px solid;
+            padding: calc(var(--size-bezel) * 1.5) var(--size-bezel);
+            color: currentColor;
+            background: transparent;
+            border-radius: var(--size-radius);
+
+            &:focus,
+            &:not(:placeholder-shown) {
+                & + .input__label {
+                    transform: translate(0.25rem, -65%) scale(0.8);
+                    color: var(--color-accent);
+                }
+            }
+        }
+    }
+
+    .comments {
+        margin-top: 20px;
+    }
+    .comment {
+        background-color: #d8d8d826;
+        padding: 10px;
+        border-radius: 10px;
+        margin: 10px 0;
+        .user {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            i {
+                color: rgb(153, 153, 153);
+                font-size: 13px;
+            }
+        }
+        .user-info {
+            display: flex;
+            align-items: center;
+
+            h4 {
+                margin-left: 10px;
+                font-size: 16px;
+            }
+            img {
+                width: 40px;
+            }
+        }
+
+        p.cmt {
+            padding-left: 50px;
+        }
+    }
+    .btn-cmt {
+        text-align: center;
+        margin-top: 20px;
+    }
+}

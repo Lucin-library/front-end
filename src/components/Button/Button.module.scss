@@ -29,7 +29,7 @@
 .defaultBtn {
     color: var(--primary-orange);
     border-color: var(--primary-orange);
-    
+    border-radius: 92px;
 
     &:hover {
         background-color: var(--primary-orange);
@@ -63,7 +63,7 @@
 .fullfill {
     background-color: var(--primary);
     color: var(--white-color);
-    border-radius: 92px;;
+    border-radius: 92px;
 }
 
 .disabled {
