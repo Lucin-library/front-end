@@ -2,7 +2,7 @@ import styles from './Details.module.scss';
 import classNames from 'classnames/bind';
 import Button from '../../components/Button';
 import images from '../../assets/image';
-import datas from '../../components/Datas';
+import { datas } from '../../components/Datas';
 import SlideShow from '../../components/Slideshow';
 import { useState } from 'react';
 

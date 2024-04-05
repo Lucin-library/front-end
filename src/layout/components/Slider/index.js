@@ -2,34 +2,10 @@
 // import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 import styles from './Slider.module.scss';
-import images from '../../../assets/image';
 import { useState, useEffect } from 'react';
 const cx = classNames.bind(styles);
 
-function Slider() {
-    const slides = [
-        {
-            id: 0,
-            src: images.slide,
-            alt: 'image 1',
-        },
-        {
-            id: 1,
-            src: images.slide1,
-            alt: 'image 2',
-        },
-        {
-            id: 2,
-            src: images.slide2,
-            alt: 'image 3',
-        },
-        {
-            id: 3,
-            src: images.slide3,
-            alt: 'image 4',
-        },
-    ];
-
+function Slider({ slides }) {
     const [index, setIndex] = useState(0);
 
     useEffect(() => {

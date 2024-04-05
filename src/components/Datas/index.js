@@ -1,4 +1,24 @@
-const datas = [
+import images from '../../assets/image';
+
+export const books = [
+    {
+        id: 0,
+        src: 'https://307a0e78.vws.vegacdn.vn/view/v2/image/img.book/0/0/1/47308.jpg?v=1&w=480&h=700',
+        alt: 'Vượt lên trật tự',
+    },
+    {
+        id: 1,
+        src: 'https://307a0e78.vws.vegacdn.vn/view/v2/image/img.book/0/0/1/47080.jpg?v=1&w=350&h=510',
+        alt: 'Lựa chọn đúng quan trọng hơn nỗ lực',
+    },
+    {
+        id: 2,
+        src: 'https://307a0e78.vws.vegacdn.vn/view/v2/image/img.book/0/0/1/47713.jpg?v=1&w=350&h=510',
+        alt: 'Rèn luyện thói quen tư duy phản biện',
+    },
+];
+
+export const datas = [
     {
         image: 'https://307a0e78.vws.vegacdn.vn/view/v2/image/img.book/0/0/1/35762.jpg?v=1&w=340&h=497',
         name: 'Hướng về nơi anh - Tập 2',
@@ -73,4 +93,25 @@ const datas = [
     },
 ];
 
-export default datas;
+export const slides = [
+    {
+        id: 0,
+        src: images.slide,
+        alt: 'image 1',
+    },
+    {
+        id: 1,
+        src: images.slide1,
+        alt: 'image 2',
+    },
+    {
+        id: 2,
+        src: images.slide2,
+        alt: 'image 3',
+    },
+    {
+        id: 3,
+        src: images.slide3,
+        alt: 'image 4',
+    },
+];
