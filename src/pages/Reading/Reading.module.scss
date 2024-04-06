@@ -1,0 +1,106 @@
+.wrapper {
+    font-family: sans-serif;
+    line-height: 1.5;
+    background-color: #fdfce5;
+    color: #4a403a;
+    min-height: 100vh;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    position: relative;
+    z-index: 2;
+    .menu {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .actions {
+        display: flex;
+        align-items: center;
+    }
+
+    .back {
+        &:hover {
+            background-color: rgba(#f9975d, 0.75);
+            color: white;
+        }
+    }
+    p.chapter {
+        font-size: 293px;
+        position: absolute;
+        top: -110px;
+        z-index: -1;
+        color: rgba(#f9975d, 0.25);
+    }
+    article {
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+        max-width: 800px;
+        border-top: 3px solid #f9975d;
+        border-bottom: 3px solid #f9975d;
+        padding: 3rem 0;
+    }
+
+    header {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        font-size: 2rem;
+        font-family: Georgia, serif;
+
+        // &:after {
+        //     content: '1';
+        //     font-size: 10em;
+        //     color: rgba(#f9975d, 0.25);
+        //     position: absolute;
+        //     z-index: -1;
+        //     line-height: 0.75;
+        //     top: 0;
+        // }
+
+        h1 {
+            font-size: 2.5em;
+            line-height: 1.25;
+        }
+
+        h2 {
+            margin-top: 0.25em;
+            font-size: 1.25em;
+            line-height: 1.375;
+        }
+
+        h3 {
+            margin-top: 2em;
+            font-size: 1em;
+            line-height: 1.25;
+        }
+    }
+
+    section {
+        margin-top: 6rem;
+        font-size: 2rem;
+        font-family: Georgia, serif;
+        line-height: 1.75;
+
+        & > * + * {
+            margin-top: 1.5em;
+        }
+
+        p:first-child {
+            font-size: 1.375em;
+            line-height: 1.125;
+        }
+    }
+}
+
+.nav-chapter {
+    text-align: center;
+    .prev-btn,
+    .next-btn {
+        background-color: #f9975d;
+        color: #fdfce5;
+        margin: 20px;
+    }
+}
