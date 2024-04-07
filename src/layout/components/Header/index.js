@@ -4,10 +4,24 @@ import classNames from 'classnames/bind';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import Button from '../../../components/Button';
+import Dropdown from '../Dropdown';
 
 const cx = classNames.bind(styles);
 
 function Header() {
+    const array = [
+        { name: 'Thu ha', href: '#' },
+        { name: 'Thu ha', href: '#' },
+        { name: 'Thu ha', href: '#' },
+    ];
+    const userOptions = [
+        { name: 'Quản lý tài khoản', href: '#', icon: <i class="fa-solid fa-circle-user"></i> },
+        { name: 'Sách đang đọc', href: '#', icon: <i class="fa-solid fa-book-open-reader"></i> },
+        { name: 'Sách yêu thích', href: '#', icon: <i class="fa-solid fa-heart"></i> },
+        { name: 'Hỗ trợ khach hàng', href: '#', icon: <i class="fa-solid fa-headset"></i> },
+        { name: 'Đăng xuất', href: '#', icon: <i class="fa-solid fa-arrow-right-from-bracket"></i> },
+    ];
+
     return (
         <header className={cx('wrapper')}>
             <section className={cx('top-header')}>
@@ -28,9 +42,14 @@ function Header() {
                         </div>
                         <div class="col-md-4 col-xs-12 col-sm-4">
                             <div class="top-menu text-right list-inline" className={cx('authen')}>
-                                <Button to="/login" small primary>
+                                {/* <Button to="/login" small primary>
                                     Đăng nhập
-                                </Button>
+                                </Button> */}
+                                <Dropdown
+                                    title="Tran Thi Thu Ha"
+                                    elements={userOptions}
+                                    image="https://devo.vn/wp-content/uploads/2023/01/soc-vai-meo.jpg"
+                                />
                             </div>
                         </div>
                     </div>
@@ -41,94 +60,9 @@ function Header() {
                     <div class="nav-option">
                         <a href="#">Trang chủ</a>
                     </div>
-
-                    <div class="dropdown-center nav-option">
-                        <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">
-                            Thể loại
-                            <span class="tf-ion-ios-arrow-down"></span>
-                        </a>
-                        <div class="dropdown-menu">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <ul>
-                                        <li>
-                                            <a href="#">Yay</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Yay</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Yay</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Yay</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Yay</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dropdown-center nav-option">
-                        <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">
-                            Văn học
-                            <span class="tf-ion-ios-arrow-down"></span>
-                        </a>
-                        <div class="dropdown-menu">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <ul>
-                                        <li>
-                                            <a href="#">Yay</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Yay</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Yay</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Yay</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Yay</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dropdown-center nav-option">
-                        <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">
-                            Khoa học - Công nghệ
-                            <span class="tf-ion-ios-arrow-down"></span>
-                        </a>
-                        <div class="dropdown-menu">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <ul>
-                                        <li>
-                                            <a href="#">Yay</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Yay</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Yay</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Yay</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Yay</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <Dropdown title="Thể loại" elements={array} />
+                    <Dropdown title="Văn học" elements={array} />
+                    <Dropdown title="Khoa học - Công nghệ" elements={array} />
                 </div>
             </section>
         </header>
