@@ -1,0 +1,9 @@
+.progress {
+    position: absolute;
+    z-index: 2;
+    width: 84%;
+    top: 248px;
+    margin: 0 20px;
+    left: -13px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
