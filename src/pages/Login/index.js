@@ -1,6 +1,8 @@
 import classNames from 'classnames/bind';
 import styles from './Login.module.scss';
 import { useState } from 'react';
+import { authApi } from '../../api/auth';
+import { useNavigate } from 'react-router-dom';
 
 import Button from '../../components/Button';
 
@@ -8,12 +10,40 @@ const cx = classNames.bind(styles);
 
 function Login() {
     const [state, setState] = useState(false);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const navigate = useNavigate();
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        authApi
+            .login({ email: email, password: password })
+            .then((res) => {
+                console.log(res);
+                navigate('/', { replace: true });
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
+
+        setEmail('');
+        setPassword('');
+    };
+
     return (
         <div className={cx('container', { rightactive: state })} id="container">
             <div className={cx('form-container', 'sign-up-container')}>
                 <form action="" method="">
                     <h1>Đăng kí</h1>
-                    <input type="text" placeholder="Tài khoản" name="username" value="" required />
+                    <input
+                        type="text"
+                        placeholder="Tài khoản"
+                        name="username"
+                        // value={email}
+                        // onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
                     <input type="password" placeholder="Mật khẩu" name="password" value="" required />
                     <input type="text" placeholder="Họ tên" name="name" value="" required />
                     <div className={cx('input-container')}>
@@ -37,7 +67,7 @@ function Login() {
                 </form>
             </div>
             <div className={cx('form-container', 'sign-in-container')}>
-                <form action="" method="">
+                <form action="" method="" onSubmit={handleSubmit}>
                     <h1>Đăng nhập</h1>
                     <div className={cx('social-container')}>
                         <a href="" className={cx('social')}>
@@ -51,8 +81,22 @@ function Login() {
                         </a>
                     </div>
                     <span>Hoặc đăng nhập với tài khoản khác</span>
-                    <input type="text" placeholder="Tài khoản" name="username" value="" required />
-                    <input type="password" placeholder="Mật khẩu" name="password" value="" required />
+                    <input
+                        type="text"
+                        placeholder="Tài khoản"
+                        name="username"
+                        required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <input
+                        type="password"
+                        placeholder="Mật khẩu"
+                        name="password"
+                        required
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
                     <a className={cx('forget')} href="#">
                         Quên mật khẩu?
                     </a>
