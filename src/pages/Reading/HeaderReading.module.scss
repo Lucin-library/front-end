@@ -1,0 +1,53 @@
+.sticky-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #ffffff; /* Add your desired background color */
+    z-index: 1000; /* Set a high z-index to make sure the header is on top of other content */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow for a visual effect */
+    transition: transform 0.3s ease-in-out;
+}
+
+.hidden {
+    transform: translateY(-100%);
+}
+
+.visible {
+    transform: translateY(0);
+}
+
+/* Optional: Add padding or any other styling you need */
+.sticky-header nav {
+    padding: 10px 20px;
+}
+
+.sticky-header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sticky-header nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.sticky-header nav ul li:last-child {
+    margin-right: 0;
+}
+
+.sticky-header nav ul li a {
+    text-decoration: none;
+    color: #333333; /* Add your desired text color */
+}
+
+.sticky-header nav ul li a:hover {
+    color: #007bff; /* Add your desired hover color */
+}
+
+.wrapper {
+    display: flex;
+    margin: 10px 40px 10px 20px;
+    justify-content: space-between;
+    align-items: center;
+}

@@ -1,15 +1,31 @@
 import classNames from 'classnames/bind';
+import React, { useState } from 'react';
 import styles from './Menu.module.scss';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { setConcreteChapter } from '../../redux/chapterCurrent';
 const cx = classNames.bind(styles);
 
-function Menu() {
+const chapter_not_is_number = [0, 99];
+
+function Menu({ chapter_array }) {
+    const [isModalVisible, setIsModalVisible] = useState(true);
+    let chapterNumber = useSelector((state) => state.chapter.value);
+    const dispatch = useDispatch();
+
+    function isActive(index) {
+        if (chapterNumber === index) return true;
+        else return false;
+    }
+    const goToChapter = (index) => {
+        dispatch(setConcreteChapter(index));
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth', // Smooth scrolling animation
+        });
+    };
+
     return (
         <div className={cx('wrapper')}>
-            <div data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                <i class="fa-solid fa-bars"></i>
-            </div>
-
             <div
                 class="offcanvas offcanvas-end"
                 tabindex="-1"
@@ -39,18 +55,22 @@ function Menu() {
                         <hr />
                         <div class="collapse content-item-filter mausac" id="collapseChapters">
                             <div className={cx('list')}>
-                                <div className={cx('list-item', 'active')}>
-                                    <p>Chapter 1: Thu ha xinh dep tuyet voi :3</p>
-                                </div>
-                                <div className={cx('list-item')}>
-                                    <p>Chapter 2: Thu ha xinh dep tuyet voi :3</p>
-                                </div>
-                                <div className={cx('list-item')}>
-                                    <p>Chapter 3: Thu ha xinh dep tuyet voi :3</p>
-                                </div>
-                                <div className={cx('list-item')}>
-                                    <p>Chapter 4: Thu ha xinh dep tuyet voi :3</p>
-                                </div>
+                                {chapter_array.map((item, index) => (
+                                    <div
+                                        className={cx('list-item', isActive(index) ? 'active' : 'un-active')}
+                                        onClick={() => goToChapter(index)}
+                                    >
+                                        <p key={index}>
+                                            {chapter_not_is_number.indexOf(item.chapter_number) === -1 ? (
+                                                <span>
+                                                    Chương {item.chapter_number}: {item.title}
+                                                </span>
+                                            ) : (
+                                                <span>{item.title}</span>
+                                            )}
+                                        </p>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </div>
