@@ -9,13 +9,13 @@ function Book({ book }) {
         <div class="col-md-3">
             <div className={cx('card')}>
                 <div className={cx('imgBox')}>
-                    <img src={book.image} className={cx('book')} />
+                    <img src={book.cover_image_url} className={cx('book')} alt={book.title} />
                 </div>
 
                 <div className={cx('contentBox')}>
-                    <h3>{book.name}</h3>
-                    <Button defaultBtn className={cx('read')}>
-                        Đọc ngay
+                    <h3>{book.title}</h3>
+                    <Button href={`/details/${book.id}`} defaultBtn className={cx('read')}>
+                        Xem
                     </Button>
                 </div>
             </div>

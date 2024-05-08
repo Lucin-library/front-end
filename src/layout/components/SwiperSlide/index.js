@@ -5,10 +5,9 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/autoplay';
 import { EffectCoverflow, Pagination, Navigation, Autoplay } from 'swiper/modules';
-import { datas } from '../../../components/Datas';
 import './index.css';
 
-function SwiperSlider() {
+function SwiperSlider({ datas }) {
     return (
         <div class="wrapper">
             <Swiper
@@ -26,7 +25,7 @@ function SwiperSlider() {
             >
                 {datas.map((book) => (
                     <SwiperSlide>
-                        <img src={book.image} alt={book.name} />
+                        <img src={book.cover_image_url} alt={book.title} />
                     </SwiperSlide>
                 ))}
                 <div class="slider-controler">

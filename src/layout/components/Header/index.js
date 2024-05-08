@@ -3,17 +3,21 @@ import './style.css';
 import classNames from 'classnames/bind';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import Button from '../../../components/Button';
 import Dropdown from '../Dropdown';
+import { bookApi } from '../../../api/book';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 const cx = classNames.bind(styles);
 
 function Header() {
-    const array = [
-        { name: 'Thu ha', href: '#' },
-        { name: 'Thu ha', href: '#' },
-        { name: 'Thu ha', href: '#' },
-    ];
+    const [genres, setGenres] = useState([]);
+    useEffect(() => {
+        bookApi
+            .getAllGenres()
+            .then((data) => setGenres(data.data))
+            .catch((err) => console.error(err));
+    }, []);
     const userOptions = [
         { name: 'Quản lý tài khoản', href: '#', icon: <i class="fa-solid fa-circle-user"></i> },
         { name: 'Sách đang đọc', href: '#', icon: <i class="fa-solid fa-book-open-reader"></i> },
@@ -58,11 +62,9 @@ function Header() {
             <section className={cx('categories')}>
                 <div class="container" className={cx('navigation')}>
                     <div class="nav-option">
-                        <a href="#">Trang chủ</a>
+                        <a href="/">Trang chủ</a>
                     </div>
-                    <Dropdown title="Thể loại" elements={array} />
-                    <Dropdown title="Văn học" elements={array} />
-                    <Dropdown title="Khoa học - Công nghệ" elements={array} />
+                    <Dropdown title="Thể loại" elements={genres} />
                 </div>
             </section>
         </header>

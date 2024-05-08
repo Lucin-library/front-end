@@ -1,6 +1,7 @@
 import './index.css';
 
 function Dropdown({ title, elements, image = null }) {
+    console.log(elements);
     return (
         <div class="dropdown-center nav-option">
             <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">
@@ -14,10 +15,14 @@ function Dropdown({ title, elements, image = null }) {
                         <ul>
                             {elements.map((el) => (
                                 <li>
-                                    <a href={el.href}>
-                                        {el.icon}
-                                        {el.name}
-                                    </a>
+                                    {typeof el === 'object' ? (
+                                        <a href={el.href}>
+                                            {el.icon}
+                                            {el.name}
+                                        </a>
+                                    ) : (
+                                        <a href={`/book/recommend/genre/${el}`}>{el}</a>
+                                    )}
                                 </li>
                             ))}
                         </ul>

@@ -8,8 +8,8 @@ import Profile from '../pages/Profile';
 // Use without login
 export const publicRoutes = [
     { path: '/', component: HomePage },
-    { path: '/details', component: Details },
-    { path: '/category', component: Category },
+    { path: '/details/:id', component: Details },
+    { path: '/book/recommend/genre/:name', component: Category },
     { path: '/profile', component: Profile },
     { path: '/read', component: Reading, layout: null },
     { path: '/login', component: Login, layout: null },
