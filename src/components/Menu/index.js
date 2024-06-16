@@ -26,12 +26,7 @@ function Menu({ chapter_array }) {
 
     return (
         <div className={cx('wrapper')}>
-            <div
-                class="offcanvas offcanvas-end"
-                tabindex="-1"
-                id="offcanvasRight"
-                aria-labelledby="offcanvasRightLabel"
-            >
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="listOfChapter" aria-labelledby="offcanvasRightLabel">
                 <div class="offcanvas-header">
                     <h1 id="offcanvasRightLabel">Danh sách</h1>
                     <button

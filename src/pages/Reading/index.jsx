@@ -9,6 +9,7 @@ import data from './data.json';
 import { useDispatch, useSelector } from 'react-redux';
 import { setNextChapterNumber, setPreviousChapter } from '../../redux/chapterCurrent';
 import HeaderReading from './HeaderReading';
+import SettingReading from '../../components/Menu/SettingReading';
 
 const cx = classNames.bind(styles);
 
@@ -98,6 +99,7 @@ function Reading() {
                 )}
             </div>
             <Menu chapter_array={chapter_array} />
+            <SettingReading />
         </>
     );
 }
