@@ -9,11 +9,11 @@ import UserPlay from '../pages/Test';
 // Use without login
 export const publicRoutes = [
     { path: '/', component: HomePage },
-    { path: '/details/:id', component: Details },
-    { path: '/book/recommend/genre/:name', component: Category },
-    { path: '/profile', component: Profile },
-    { path: '/read', component: Reading, layout: null },
-    { path: '/login', component: Login, layout: null },
+    // { path: '/details/:id', component: Details },
+    // { path: '/book/recommend/genre/:name', component: Category },
+    // { path: '/profile', component: Profile },
+    // { path: '/read', component: Reading, layout: null },
+    // { path: '/login', component: Login, layout: null },
 ];
 
 // Routes need to login to use

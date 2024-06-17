@@ -2,7 +2,6 @@
     font-size: 24px;
     max-width: var(--default-width);
     margin: auto;
-    
 }
 
 .top-header {
@@ -11,15 +10,14 @@
         padding-bottom: 25px;
         border-bottom: 1px solid #dedede;
     }
-    
 }
 
-.search-box{
+.search-box {
     width: fit-content;
     height: fit-content;
     position: relative;
-  }
-  .input-search{
+}
+.input-search {
     height: 50px;
     width: 50px;
     border-style: none;
@@ -28,17 +26,17 @@
     letter-spacing: 2px;
     outline: none;
     border-radius: 25px;
-    transition: all .5s ease-in-out;
+    transition: all 0.5s ease-in-out;
     padding-right: 40px;
     color: var(--text-color);
-  }
-  .input-search::placeholder{
+}
+.input-search::placeholder {
     color: gray;
     font-size: 18px;
     letter-spacing: 2px;
     font-weight: 100;
-  }
-  .btn-search{
+}
+.btn-search {
     width: 50px;
     height: 50px;
     border-style: none;
@@ -49,33 +47,31 @@
     border-radius: 50%;
     position: absolute;
     right: 0px;
-    color: var(--text-color) ;
-    background-color:transparent;
-    pointer-events: painted;  
-  }
-  .btn-search:focus ~ .input-search{
-    width: 300px;
-    border-radius: 0px;
-    color: var(--text-color) ;
+    color: var(--text-color);
     background-color: transparent;
-    border-bottom:1px solid gray;
-    transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
-  }
-  .input-search:focus{
-    width: 300px;
+    pointer-events: painted;
+}
+.btn-search:focus ~ .input-search {
+    width: 390px;
+    border-radius: 0px;
+    color: var(--text-color);
+    background-color: transparent;
+    border-bottom: 1px solid gray;
+    transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+}
+.input-search:focus {
+    width: 390px;
     border-radius: 0px;
     background-color: transparent;
-    border-bottom:1px solid gray;
-    transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
-  }
-  
+    border-bottom: 1px solid gray;
+    transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+}
 
 .logo {
     font-size: 30px;
     font-weight: 400;
     text-align: center;
 }
-
 
 .sign-up {
     color: var(--primary-orange) !important;

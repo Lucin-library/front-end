@@ -3,6 +3,7 @@ import './style.css';
 import classNames from 'classnames/bind';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import SearchResult from '../SearchResult';
 import Dropdown from '../Dropdown';
 import { bookApi } from '../../../api/book';
 import { useState } from 'react';
@@ -32,11 +33,14 @@ function Header() {
                 <div className={cx('container')}>
                     <div class="row">
                         <div class="col-md-4 col-xs-12 col-sm-4">
-                            <div className={cx('search-box')}>
-                                <button className={cx('btn-search')}>
-                                    <i class="fa-solid fa-magnifying-glass"></i>
-                                </button>
-                                <input type="text" className={cx('input-search')} placeholder="Type to Search..." />
+                            <div className={cx('search')}>
+                                <div className={cx('search-box')}>
+                                    <button className={cx('btn-search')}>
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
+                                    <input type="text" className={cx('input-search')} placeholder="Type to Search..." />
+                                </div>
+                                <SearchResult />
                             </div>
                         </div>
                         <div class="col-md-4 col-xs-12 col-sm-4">
