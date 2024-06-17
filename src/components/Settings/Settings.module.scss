@@ -1,0 +1,123 @@
+.wrapper {
+    margin-right: 20px;
+    padding: 0 15px;
+    &:hover {
+        cursor: pointer;
+    }
+
+    p {
+        margin: 0;
+    }
+}
+
+.theme {
+    display: flex;
+    justify-content: space-between;
+}
+
+select {
+    padding: 10px;
+    width: 200px;
+    border-radius: 4px;
+}
+
+hr,
+h2 {
+    margin: 0;
+}
+
+.line-height {
+    img {
+        width: 60px;
+        border: 1px solid lightgray;
+        border-radius: 4px;
+        padding: 0 10px;
+    }
+    select {
+        border: none;
+        width: 100px;
+    }
+}
+
+.justify {
+    display: flex;
+    justify-content: space-between;
+}
+
+.justify-icon {
+    border: 1px solid lightgray;
+    padding: 5px 30px;
+    border-radius: 4px;
+    font-size: 22px;
+}
+.active {
+    background-color: aliceblue;
+    color: rgb(4, 4, 186);
+}
+
+.display-options {
+    padding: 0 15px;
+    p.title {
+        font-weight: 600;
+    }
+}
+
+.options {
+    margin: 35px 0;
+    p {
+        margin-bottom: 10px;
+    }
+}
+
+.checkbox_item .checkbox_wrap {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    width: 100px;
+}
+
+.checkbox_item .checkbox_wrap .checkbox_inp {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+}
+
+.checkbox_item .checkbox_wrap .checkbox_mark {
+    display: inline-block;
+    position: relative;
+    border-radius: 25px;
+}
+
+.checkbox_item .checkbox_wrap .checkbox_mark:before,
+.checkbox_item .checkbox_wrap .checkbox_mark:after {
+    content: '';
+    position: absolute;
+    transition: all 0.5s ease;
+}
+
+/* basic styles */
+.checkbox_item .checkbox_wrap .checkbox_mark {
+    background: #f0f0f0;
+    width: 70px;
+    height: 30px;
+    padding: 2px;
+}
+
+.checkbox_item .checkbox_wrap .checkbox_mark:before {
+    top: 3px;
+    left: 3px;
+    width: 24px;
+    height: 24px;
+    background: #fff;
+    border-radius: 50%;
+}
+
+.checkbox_item .checkbox_wrap .checkbox_inp:checked ~ .checkbox_mark {
+    background: #34bfa3;
+}
+
+.checkbox_item .checkbox_wrap .checkbox_inp:checked ~ .checkbox_mark:before {
+    left: 43px;
+}

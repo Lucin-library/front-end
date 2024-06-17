@@ -1,5 +1,6 @@
 import Button from '../../components/Button';
 import Menu from '../../components/Menu';
+import Settings from '../../components/Settings';
 
 import classNames from 'classnames/bind';
 import styles from './Reading.module.scss';
@@ -9,11 +10,28 @@ const cx = classNames.bind(styles);
 
 function Reading() {
     const [state, setState] = useState(false);
+    const [settings, setSettings] = useState({
+        darkTheme: false,
+        view: '0',
+        font: 'caption',
+        fontSize: '20',
+        lineHeight: '1.5',
+        justify: 'left',
+    });
 
+    const handleSettingsChange = (newSettings) => {
+        console.log(settings);
+        setSettings(newSettings);
+    };
+
+    const darkTheme = {
+        backgroundColor: '#343a40',
+        color: 'white',
+    };
     const hanldeBookmark = () => setState(!state);
 
     return (
-        <div className={cx('wrapper')}>
+        <div className={cx('wrapper')} style={settings.darkTheme ? darkTheme : {}}>
             <div className={cx('menu')}>
                 <Button leftIcon={<i class="fa-solid fa-angle-left"></i>} className={cx('back')} />
                 <div className={cx('actions')}>
@@ -23,6 +41,7 @@ function Reading() {
                         <Button leftIcon={<i class="fa-regular fa-bookmark"></i>} onClick={hanldeBookmark} />
                     )}
                     <Menu />
+                    <Settings onSettingsChange={handleSettingsChange} />
                 </div>
             </div>
 
@@ -34,7 +53,14 @@ function Reading() {
                     <h3>An Excerpt from Chapter One</h3>
                 </header>
 
-                <section>
+                <section
+                    style={{
+                        fontSize: settings.fontSize + 'px',
+                        font: settings.font,
+                        lineHeight: settings.lineHeight,
+                        textAlign: settings.justify,
+                    }}
+                >
                     <p>Mrs. Dalloway said she would buy the flowers herself.</p>
 
                     <p>
