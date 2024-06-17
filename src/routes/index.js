@@ -4,6 +4,7 @@ import Details from '../pages/Details';
 import Category from '../pages/Category';
 import Reading from '../pages/Reading';
 import Profile from '../pages/Profile';
+import UserPlay from '../pages/Test';
 
 // Use without login
 export const publicRoutes = [
