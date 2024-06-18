@@ -13,7 +13,7 @@ function Reading() {
     const [settings, setSettings] = useState({
         darkTheme: false,
         view: '0',
-        font: 'caption',
+        font: 'revert-layer',
         fontSize: '20',
         lineHeight: '1.5',
         justify: 'left',

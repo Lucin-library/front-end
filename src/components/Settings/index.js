@@ -3,114 +3,13 @@ import styles from './Settings.module.scss';
 import { useState } from 'react';
 const cx = classNames.bind(styles);
 
-// function Settings() {
-//     return (
-//         <div className={cx('wrapper')}>
-//             <div data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight2" aria-controls="offcanvasRight">
-//                 <i class="fa fa-gear"></i>
-//             </div>
-
-//             <div
-//                 class="offcanvas offcanvas-end"
-//                 tabindex="-1"
-//                 id="offcanvasRight2"
-//                 aria-labelledby="offcanvasRightLabel"
-//             >
-//                 <div class="offcanvas-header" style={{ margin: '10px' }}>
-//                     <h2 id="offcanvasRightLabel">Cài đặt hiển thị</h2>
-//                     <button
-//                         type="button"
-//                         class="btn-close text-reset"
-//                         data-bs-dismiss="offcanvas"
-//                         aria-label="Close"
-//                     ></button>
-//                 </div>
-//                 <hr />
-//                 <div class="offcanvas-body" style={{ marginTop: '20px' }}>
-//                     <div className={cx('display-options')}>
-//                         <div className={cx('theme')}>
-//                             <p className={cx('title')}>Dark Theme</p>
-//                             <div className={cx('checkbox_item')}>
-//                                 <label className={cx('checkbox_wrap')}>
-//                                     <input type="checkbox" name="checkbox" className={cx('checkbox_inp')} />
-//                                     <span className={cx('checkbox_mark')}></span>
-//                                 </label>
-//                             </div>
-//                         </div>
-//                         <div className={cx('options')}>
-//                             <p className={cx('title')}>View</p>
-//                             <div className={cx('custom-select')}>
-//                                 <select>
-//                                     <option value="0">Flowing text</option>
-//                                     <option value="1">Audi</option>
-//                                     <option value="2">BMW</option>
-//                                     <option value="3">Citroen</option>
-//                                     <option value="4">Ford</option>
-//                                 </select>
-//                             </div>
-//                         </div>
-//                         <div className={cx('options')}>
-//                             <p className={cx('title')}>Font</p>
-//                             <div className={cx('custom-select')}>
-//                                 <select>
-//                                     <option value="0">Verdana</option>
-//                                     <option value="1">Audi</option>
-//                                     <option value="2">BMW</option>
-//                                     <option value="3">Citroen</option>
-//                                     <option value="4">Ford</option>
-//                                 </select>
-//                             </div>
-//                         </div>
-//                         <div className={cx('options')}>
-//                             <p className={cx('title')}>Font size</p>
-//                             <div className={cx('custom-select')}>
-//                                 <select>
-//                                     <option value="0">64</option>
-//                                     <option value="1">50</option>
-//                                     <option value="2">45</option>
-//                                     <option value="3">24</option>
-//                                 </select>
-//                             </div>
-//                         </div>
-//                         <div className={cx('options')}>
-//                             <p className={cx('title')}>Line height</p>
-//                             <div className={cx('line-height')}>
-//                                 <img src="https://www.svgrepo.com/show/376554/line-height-line.svg" />
-//                                 <select>
-//                                     <option value="0">100%</option>
-//                                     <option value="1">80%</option>
-//                                     <option value="2">65%</option>
-//                                     <option value="3">50%</option>
-//                                 </select>
-//                             </div>
-//                         </div>
-//                         <div className={cx('options')}>
-//                             <p className={cx('title')}>Justify</p>
-//                             <div className={cx('justify')}>
-//                                 <div className={cx('justify-icon', 'active')}>
-//                                     <i class="fa-solid fa-align-left"></i>
-//                                 </div>
-//                                 <div className={cx('justify-icon')}>
-//                                     <i class="fa-solid fa-align-justify"></i>
-//                                 </div>
-//                                 <div className={cx('justify-icon')}>
-//                                     <i class="fa-solid fa-align-right"></i>
-//                                 </div>
-//                             </div>
-//                         </div>
-//                     </div>
-//                 </div>
-//             </div>
-//         </div>
-//     );
-// }
 function Settings({ onSettingsChange }) {
     const [settings, setSettings] = useState({
         darkTheme: false,
         view: '0',
-        font: '0',
-        fontSize: '0',
-        lineHeight: '0',
+        font: 'revert-layer',
+        fontSize: '20',
+        lineHeight: '1.5',
         justify: 'left',
     });
 
@@ -184,7 +83,9 @@ function Settings({ onSettingsChange }) {
                                 <select name="font" value={settings.font} onChange={handleChange}>
                                     <option value="caption">Caption</option>
                                     <option value="menu">Menu</option>
-                                    <option value="revert-layer">Revert layer</option>
+                                    <option value="revert-layer" selected>
+                                        Revert layer
+                                    </option>
                                 </select>
                             </div>
                         </div>
