@@ -44,16 +44,17 @@ function Category() {
                             <div className={cx('col')}>
                                 <div className={cx('content')}>
                                     <h2>THỂ LOẠI</h2>
+<<<<<<< HEAD
                                     <h1>{name}</h1>
+=======
+                                    <h1>Tình Cảm</h1>
+>>>>>>> main
                                     <i>
-                                        Sách phát triển bản thân (self-help) thường nói về về cuộc sống, nhân sinh, cách
-                                        suy nghĩ và nhìn nhận mọi thứ xung quanh nhằm đưa ra câu trả lời cho vấn đề bạn
-                                        đang gặp phải, đồng thời giúp hoàn thiện bản thân hơn. <br />
-                                        {/* Một trong những lợi ích rõ ràng nhất của sách self-help chính là khả năng truyền
-                                        động lực. Khi đọc sách, bạn sẽ được nghe câu chuyện kể về những trải nghiệm, quá
-                                        trình đi lên, con đường chạm đến thành công của tác giả. Nếu hoàn cảnh của người
-                                        viết giống bạn, chắc chắn nguồn động lực mà bạn nhận được từ cuốn sách sẽ vô
-                                        cùng lớn lao. */}
+                                        Sách tình cảm như một làn gió mát lành thổi vào tâm hồn của những người đọc.
+                                        Sách tình cảm không chỉ đem đến những câu chuyện tình lãng mạn mà còn ẩn chứa
+                                        trong đó những triết lý sâu sắc về cuộc sống, con người. Nếu bạn đang tìm một
+                                        cuốn sách như vậy thì hãy tham khảo ngay 10 cuốn sách tình cảm hay nhất mọi thời
+                                        đại nên đọc qua bài viết dưới đây nhé!
                                     </i>
                                 </div>
                             </div>

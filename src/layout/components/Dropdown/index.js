@@ -1,4 +1,6 @@
+import { useNavigate } from 'react-router-dom';
 import './index.css';
+import { useState } from 'react';
 
 function Dropdown({ title, elements, image = null }) {
     console.log(elements);

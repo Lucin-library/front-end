@@ -10,6 +10,10 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/autoplay';
 import { EffectCoverflow, Pagination, Navigation, Autoplay } from 'swiper/modules';
+import { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Loading from '../Loading';
+import LoadingModal from '../LoadingModal';
 
 const cx = classNames.bind(styles);
 
@@ -19,7 +23,16 @@ function Slideshow({ datas, title, className }) {
     const classes = cx('wrapper', {
         [className]: className,
     });
-
+    const navigateToDetail = () => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+            navigate('/details');
+        }, 1500);
+    };
+    if (loading) {
+        return <LoadingModal show={loading} />;
+    }
     return (
         <div className={classes}>
             <div className={cx('header')}>

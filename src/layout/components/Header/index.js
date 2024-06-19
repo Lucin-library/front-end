@@ -5,26 +5,54 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import SearchResult from '../SearchResult';
 import Dropdown from '../Dropdown';
-import { bookApi } from '../../../api/book';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
 function Header() {
-    const [genres, setGenres] = useState([]);
+    const [user, setUser] = useState();
+    const navigate = useNavigate();
+
     useEffect(() => {
-        bookApi
-            .getAllGenres()
-            .then((data) => setGenres(data.data))
-            .catch((err) => console.error(err));
+        const isLogin = localStorage.getItem('isLogin');
+        if (isLogin === 'true') {
+            setUser('Long Nguyen');
+        } else {
+            setUser(null);
+        }
     }, []);
+
+    const array1 = [
+        { name: 'Kinh Dị' },
+        { name: 'Trinh Thám' },
+        { name: 'Tình Cảm' },
+        { name: 'Phiêu Lưu' },
+        { name: 'Hài Hước' },
+        { name: 'Lịch Sử' },
+    ];
+    const array2 = [
+        { name: 'Tiểu Thuyết' },
+        { name: 'Truyện Ngắn' },
+        { name: 'Tiểu Luận' },
+        { name: 'Thơ' },
+        { name: 'Kịch' },
+        { name: 'Hồi Ký' },
+    ];
+    const array3 = [
+        { name: 'Trí tuệ Nhân tạo' },
+        { name: 'Công nghệ Thông tin' },
+        { name: 'Y học' },
+        { name: 'Kỹ thuật Y sinh' },
+        { name: 'Xã hội học' },
+        { name: 'Kinh tế học' },
+    ];
     const userOptions = [
-        { name: 'Quản lý tài khoản', href: '#', icon: <i class="fa-solid fa-circle-user"></i> },
-        { name: 'Sách đang đọc', href: '#', icon: <i class="fa-solid fa-book-open-reader"></i> },
-        { name: 'Sách yêu thích', href: '#', icon: <i class="fa-solid fa-heart"></i> },
-        { name: 'Hỗ trợ khach hàng', href: '#', icon: <i class="fa-solid fa-headset"></i> },
-        { name: 'Đăng xuất', href: '#', icon: <i class="fa-solid fa-arrow-right-from-bracket"></i> },
+        { name: 'Quản lý tài khoản', icon: <i class="fa-solid fa-circle-user"></i> },
+        { name: 'Sách đang đọc', icon: <i class="fa-solid fa-book-open-reader"></i> },
+        { name: 'Sách yêu thích', icon: <i class="fa-solid fa-heart"></i> },
+        { name: 'Hỗ trợ khach hàng', icon: <i class="fa-solid fa-headset"></i> },
+        { name: 'Đăng xuất', icon: <i class="fa-solid fa-arrow-right-from-bracket"></i> },
     ];
 
     return (
@@ -50,14 +78,17 @@ function Header() {
                         </div>
                         <div class="col-md-4 col-xs-12 col-sm-4">
                             <div class="top-menu text-right list-inline" className={cx('authen')}>
-                                {/* <Button to="/login" small primary>
-                                    Đăng nhập
-                                </Button> */}
-                                <Dropdown
-                                    title="Tran Thi Thu Ha"
-                                    elements={userOptions}
-                                    image="https://devo.vn/wp-content/uploads/2023/01/soc-vai-meo.jpg"
-                                />
+                                {user ? (
+                                    <Dropdown
+                                        title={user}
+                                        elements={userOptions}
+                                        image="https://devo.vn/wp-content/uploads/2023/01/soc-vai-meo.jpg"
+                                    />
+                                ) : (
+                                    <Button to="/login" small primary style={{ cursor: 'pointer' }}>
+                                        Đăng nhập
+                                    </Button>
+                                )}
                             </div>
                         </div>
                     </div>
