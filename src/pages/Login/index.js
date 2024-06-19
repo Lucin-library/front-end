@@ -5,6 +5,7 @@ import { authApi } from '../../api/auth';
 import { useNavigate } from 'react-router-dom';
 
 import Button from '../../components/Button';
+import Loading from '../../components/Loading';
 
 const cx = classNames.bind(styles);
 
@@ -12,24 +13,25 @@ function Login() {
     const [state, setState] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        authApi
-            .login({ email: email, password: password })
-            .then((res) => {
-                console.log(res);
-                navigate('/', { replace: true });
-            })
-            .catch((err) => {
-                console.log(err.message);
-            });
 
+        localStorage.setItem('isLogin', true);
         setEmail('');
         setPassword('');
+        setLoading(true);
+        setTimeout(() => {
+            navigate('/', { replace: true });
+            setLoading(false);
+        }, 2000);
     };
+    if (loading === true) {
+        return <Loading />;
+    }
 
     return (
         <div className={cx('container', { rightactive: state })} id="container">

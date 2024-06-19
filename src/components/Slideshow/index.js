@@ -1,7 +1,9 @@
-
 import classNames from 'classnames/bind';
 import styles from './Slideshow.module.scss';
 import { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Loading from '../Loading';
+import LoadingModal from '../LoadingModal';
 
 const cx = classNames.bind(styles);
 
@@ -10,15 +12,17 @@ function Slideshow({ datas, title, className }) {
     let boodWidth = 255;
     let move = boodWidth * 5;
     let prevDisabled, nextDisabled;
+    const navigate = useNavigate();
 
     const [limit, setLimit] = useState(countClick.current);
     const [state, setState] = useState(0);
+    const [loading, setLoading] = useState(false);
 
-    if (limit <= 1) nextDisabled = true; 
+    if (limit <= 1) nextDisabled = true;
     if (limit >= countClick.current) prevDisabled = true;
 
     const handleNextSlide = () => {
-        if (limit <= 1 ) {
+        if (limit <= 1) {
             return;
         } else {
             setLimit((prev) => prev - 1);
@@ -38,7 +42,16 @@ function Slideshow({ datas, title, className }) {
     const classes = cx('wrapper', {
         [className]: className,
     });
-
+    const navigateToDetail = () => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+            navigate('/details');
+        }, 1500);
+    };
+    if (loading) {
+        return <LoadingModal show={loading} />;
+    }
     return (
         <div className={classes}>
             <div className={cx('header')}>
@@ -49,7 +62,7 @@ function Slideshow({ datas, title, className }) {
             <div className={cx('container')}>
                 <div className={cx('sliders')} style={{ transform: `translate3d(${-state}px, 0, 0)` }}>
                     {datas.map((book, index) => (
-                        <div key={index} className={cx('book')}>
+                        <div key={index} className={cx('book')} onClick={() => navigateToDetail()}>
                             <img className={cx('book-img')} src={book.image} alt={book.name} />
                             <div className={cx('book-info')}>
                                 <p className={cx('name')}>{book.name}</p>
@@ -63,11 +76,10 @@ function Slideshow({ datas, title, className }) {
                 <div className={cx('prev-btn', { active: prevDisabled })} onClick={handlePrevSlide}>
                     <i class="fa-solid fa-chevron-left"></i>
                 </div>
-                
+
                 <div className={cx('next-btn', { active: nextDisabled })} onClick={handleNextSlide}>
                     <i class="fa-solid fa-chevron-right"></i>
                 </div>
-                
             </div>
         </div>
     );

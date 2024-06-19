@@ -5,12 +5,20 @@ import Support from './components/Support';
 
 import classNames from 'classnames/bind';
 import styles from './Profile.module.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const cx = classNames.bind(styles);
 
 function Profile() {
     const [active, setActive] = useState('manage');
+    const [user, setUser] = useState({});
+
+    useEffect(() => {
+        const storedUser = localStorage.getItem('user');
+        if (storedUser) {
+            setUser(JSON.parse(storedUser));
+        }
+    }, []);
 
     return (
         <div className="container">
@@ -57,7 +65,7 @@ function Profile() {
                 </div>
                 <div className="col-md-8">
                     <div className={cx('right')}>
-                        {active === 'manage' && <ManageAccount />}
+                        {active === 'manage' && <ManageAccount user={user} />}
                         {active === 'reading' && <Books />}
                         {active === 'favorite' && <Books />}
                         {active === 'support' && <Support />}
